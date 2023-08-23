@@ -1,0 +1,30 @@
+jenkins:
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+       - id: ${ADMIN_USER}
+         password: ${ADMIN_PASSWORD}
+  authorizationStrategy:
+    globalMatrix:
+      permissions:
+        - "Overall/Administer:admin"
+        - "Overall/Read:authenticated"
+  remotingSecurity:
+    enabled: true
+security:
+  queueItemAuthenticator:
+    authenticators:
+    - global:
+        strategy: triggeringUsersAuthorizationStrategy
+unclassified:
+  location:
+    url: http://localhost:8080/
+  logstashConfiguration:
+    enableGlobally: true
+    enabled: true
+    logstashIndexer:
+      elasticSearch:
+        mimeType: "application/json"
+        uri: "http://elasticsearch:9200/logstash/jenkins"
+    milliSecondTimestamps: true
