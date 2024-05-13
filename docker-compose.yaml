@@ -2,8 +2,8 @@ version: '3.7'
 services:
   jenkins:
     build: jenkins
-    # privileged: true
-    # user: root
+    privileged: true
+    user: root
     env_file:
       - jenkins.env
     ports:
@@ -13,7 +13,7 @@ services:
     volumes:
       - jenkins_home:/var/jenkins_home
       - ./jenkins/casc.yaml:/var/jenkins_home/casc.yaml
-      # - /var/run/docker.sock:/var/run/docker.sock
+      - /var/run/docker.sock:/var/run/docker.sock
       # - /usr/local/bin/docker:/usr/local/bin/docker
 
   elasticsearch:

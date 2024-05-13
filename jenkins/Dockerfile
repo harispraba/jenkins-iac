@@ -17,4 +17,8 @@ RUN apt-get update && apt-get install -y docker-ce-cli
 USER jenkins
 COPY casc.yaml /var/jenkins_home/casc.yaml
 RUN jenkins-plugin-cli --plugins \
-    "saferestart:latest kubernetes:latest configuration-as-code:latest matrix-auth:latest authorize-project:latest logstash:latest"
+       "saferestart:latest configuration-as-code:latest" \
+       "git:latest pipeline-model-definition:latest" \
+       "blueocean:latest docker-workflow:latest"
+
+       # jenkins-plugin-cli --plugins "saferestart:latest configuration-as-code:latest git:latest pipeline-model-definition:latest docker-plugin:latest blueocean:latest"
