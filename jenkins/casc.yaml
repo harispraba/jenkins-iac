@@ -20,11 +20,11 @@ security:
 unclassified:
   location:
     url: http://localhost:8080/
-  logstashConfiguration:
-    enableGlobally: true
-    enabled: true
-    logstashIndexer:
-      elasticSearch:
-        mimeType: "application/json"
-        uri: "http://elasticsearch:9200/logstash/jenkins"
-    milliSecondTimestamps: true
+  # logstashConfiguration:
+  #   enableGlobally: true
+  #   enabled: true
+  #   logstashIndexer:
+  #     elasticSearch:
+  #       mimeType: "application/json"
+  #       uri: "http://elasticsearch:9200/logstash/jenkins"
+  #   milliSecondTimestamps: true
